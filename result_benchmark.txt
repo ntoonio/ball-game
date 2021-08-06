@@ -1,0 +1,80 @@
+- - - - - - - 
+Board: 8a279320979413b850a1b724459536b0350816a6b876412a
+successfull: 1
+exception: 0
+tries: 27061
+steps: 45
+individual_steps: 64
+- - - - - - - 
+- - - - - - - 
+Board: 00123145627642289071a4aab889bb6761b3a98437905553
+successfull: 1
+exception: 0
+tries: 679
+steps: 36
+individual_steps: 56
+- - - - - - - 
+- - - - - - - 
+Board: 996792ba7856741b050615a364b2a33888442013b02a7159
+successfull: 1
+exception: 0
+tries: 164
+steps: 40
+individual_steps: 58
+- - - - - - - 
+- - - - - - - 
+Board: 077625b04688ba6689441a0b43795a93232052185971a3b1
+successfull: 1
+exception: 0
+tries: 116
+steps: 37
+individual_steps: 55
+- - - - - - - 
+- - - - - - - 
+Board: 2863385364b9210779a558501369ba760a942b480a1217b4
+successfull: 1
+exception: 0
+tries: 69
+steps: 45
+individual_steps: 73
+- - - - - - - 
+- - - - - - - 
+Board: 774a9103170bb933252558986640219368a4670a1ba2485b
+successfull: 1
+exception: 0
+tries: 45
+steps: 41
+individual_steps: 60
+- - - - - - - 
+- - - - - - - 
+Board: 26a3147a1444328231098375b2a196b0b08b07597a659865
+successfull: 1
+exception: 0
+tries: 3338
+steps: 43
+individual_steps: 68
+- - - - - - - 
+- - - - - - - 
+Board: 2b2b431939aa0928114698715a6b437475a020b556788306
+successfull: 1
+exception: 0
+tries: 60
+steps: 45
+individual_steps: 69
+- - - - - - - 
+- - - - - - - 
+Board: 3230603a8877b946055a0474892a7821231bb466a51b9195
+successfull: 1
+exception: 0
+tries: 573
+steps: 39
+individual_steps: 57
+- - - - - - - 
+- - - - - - - 
+Board: 765a625ab72b281238417683ab64a00139859410b9093745
+successfull: 1
+exception: 0
+tries: 3709
+steps: 47
+individual_steps: 71
+- - - - - - - 

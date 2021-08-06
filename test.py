@@ -3,7 +3,7 @@ import sys
 
 import balls
 
-balls.tools.DEBUG_PRINT = True
+balls.tools.DEBUG_PRINT = False
 
 def _randomBoardString():
 	seed = random.randrange(sys.maxsize)
@@ -13,18 +13,18 @@ def _randomBoardString():
 
 	return balls.generate.generateRandomBoardString()
 
-
 def main():
 	boardString = None
 
 	# -----------------------------------------------------
 
-	boardString = "8a279320979413b850a1b724459536b0350816a6b876412a" # took slightly longer
+	#boardString = "8a279320979413b850a1b724459536b0350816a6b876412a" # took slightly longer
 	#boardString = "0a3260071ab42161272548bbb9176053958634a8893a9745" # no solution yet
 	#boardString = "00123145627642289071a4aab889bb6761b3a98437905553"
 	#boardString = "21005413672682241709aa4a988b76bb3b16489a09733555"
 	#boardString = "0000111122223333444455556666777788889999aaaabbxxbb"
 	#boardString = "0000111122223333444455556666777788889999baaaxbbba"
+	#boardString = "9058a13319347193a088052b164778b640625a2b76b2a495" # fastnar
 
 	# -----------------------------------------------------
 

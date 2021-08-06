@@ -7,10 +7,8 @@ from balls.tools import printBoard, _p
 
 DEBUG_PRINT = True
 BRUTE_DEPTH = 50
-TRIES = 0
+
 def isSolved(board):
-	global TRIES
-	TRIES += 1
 	for pipe in board:
 		pc = None
 		for c in pipe:
@@ -114,7 +112,7 @@ def move(board, move):
 		color = board[opipe].pop()
 		board[dpipe].append(color)
 
-def _brute(board, history = [], newMove = None, d = 0, **kwargs):
+def _brute(board, history = [], newMove = None, d = 0, debugData=None, **kwargs):
 	if newMove:
 		_p(d, "Move: ", newMove)
 
@@ -122,6 +120,11 @@ def _brute(board, history = [], newMove = None, d = 0, **kwargs):
 		history.append(newMove)
 
 		printBoard(board, lambda *s,**kwargs: _p(d, *s, **kwargs))
+
+		if debugData != None:
+			if "tries" not in debugData:
+				debugData["tries"] = 0
+			debugData["tries"] += 1
 
 		if isSolved(board):
 			return history
@@ -138,12 +141,12 @@ def _brute(board, history = [], newMove = None, d = 0, **kwargs):
 		return False
 
 	for m in moves:
-		solved = _brute(deepcopy(board), deepcopy(history), m, d+1, **kwargs)
+		solved = _brute(deepcopy(board), deepcopy(history), m, d+1, debugData, **kwargs)
 		if solved:
 			return solved
 
-def solve(board, **kwargs):
-	moves = _brute(board, **kwargs)
-	print("tries:", TRIES)
+def solve(board, debugData=None, **kwargs):
+	moves = _brute(board, debugData=debugData, **kwargs)
+
 	return moves
 
