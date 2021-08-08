@@ -1,4 +1,5 @@
 DEBUG_PRINT = True
+PRINT_FULL_BOARD = True
 
 def _p(d, *s, **kwargs):
 	if not DEBUG_PRINT:
@@ -9,6 +10,10 @@ def _dec(i):
 	return int(i, 16)
 
 def printBoard(board, pp=print):
+	if not PRINT_FULL_BOARD:
+		pp("Board:", boardToString(board))
+		return
+
 	for r in range(0, 10):
 		if r == 4 or r == 9:
 			pp(" ".join(["‾" * 5 for x in range(0, 7)]))
@@ -49,3 +54,12 @@ def boardFromString(s):
 
 	return board
 
+def boardToString(board):
+	s = ""
+
+	for pipe in board:
+		for c in pipe:
+			s += hex(c)[2:]
+		s += "x" * (4 - len(pipe))
+	s = s.rstrip("x")	
+	return s

@@ -18,9 +18,6 @@ def isSolved(board):
 				return False
 	return True
 
-# Att lägga till:
-# - inte påbörja ny pipe om färg kan flyttas ner till annan som ännu inte är fylld
-# - flytta den mindre högen till den större, för att spara steg
 def findValidMoves(board):
 	def _groupSize(pipe):
 		c = None
@@ -64,8 +61,9 @@ def findValidMoves(board):
 			# if they're the same pipe, or
 			#	 the pipes are identical, unless they are made of a single color, or
 			#	 there's an identical pipe already added as a destination pipe, or
-			#	 when the top leaves the pipe it will create a pipe identical to the destination pipe before the move
-			if pn == pn2 or (pipe == pipe2 and not _isPipeSingleColor(pipe)) or pipe2 in usedPipes or pipe[:-size] == pipe2:# (len(pipe2) == 0 and len(pipe) < 4):
+			#	 when the top leaves the pipe it will create a pipe identical to the destination pipe before the move, or
+			if pn == pn2 or (pipe == pipe2 and not _isPipeSingleColor(pipe)) or pipe2 in usedPipes or pipe[:-size] == pipe2:
+				# (len(pipe2) == 0 and len(pipe) < 4): # I don't remember what this did but it made stuff quick, but missed some opportunities
 				pn2 += 1
 				continue
 
@@ -79,7 +77,7 @@ def findValidMoves(board):
 			pn2 += 1
 		
 		# if a color can be moved to a non empty pipe, moving to an empty should not be an alternative	
-		if len(pipeMoves) > 1 and [] in [board[x[1]] for x in pipeMoves]:
+		if len(pipeMoves) > 1:
 			for pm in pipeMoves:
 				if len(board[pm[1]]) == 0:
 					pipeMoves.remove(pm)

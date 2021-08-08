@@ -3,7 +3,8 @@ import sys
 
 import balls
 
-balls.tools.DEBUG_PRINT = False
+balls.tools.DEBUG_PRINT = True
+balls.tools.PRINT_FULL_BOARD = True
 
 def _randomBoardString():
 	seed = random.randrange(sys.maxsize)
@@ -19,6 +20,7 @@ def main():
 	# -----------------------------------------------------
 
 	#boardString = "8a279320979413b850a1b724459536b0350816a6b876412a" # took slightly longer
+	boardString = "1041015022223333044415556666777788889999aaaabbbb"
 	#boardString = "0a3260071ab42161272548bbb9176053958634a8893a9745" # no solution yet
 	#boardString = "00123145627642289071a4aab889bb6761b3a98437905553"
 	#boardString = "21005413672682241709aa4a988b76bb3b16489a09733555"
@@ -35,13 +37,16 @@ def main():
 
 	mainBoard = balls.tools.boardFromString(boardString)
 
-	moves = balls.solve(mainBoard)
+	debugData = {}
+
+	moves = balls.solve(mainBoard, debugData=debugData)
 
 	if not moves:
 		print("Not solvable. Maybe a deeper brute depth can solve it")
 		return
-	
+
 	print("Solvable in " + str(len(moves)) + " moves")
+	print("Tries: " + str(debugData["tries"]))
 
 	for i, m in enumerate(moves):
 		if i % 5 == 0 and i != 0:
